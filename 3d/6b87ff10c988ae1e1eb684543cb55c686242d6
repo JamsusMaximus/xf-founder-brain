@@ -1,0 +1,21 @@
+.agents/skills/customer-discovery-grading/SKILL.md
+  s_5588a55648cdd1::t_1061afe84251ea 13-14,22,31,33-36,52-56,58,62,86
+.claude/skills/customer-discovery-grading/SKILL.md
+  s_5588a55648cdd1::t_a3f8afc4606985 13-14,22,31,33-36,52-56,58,62,86
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3d6b87ff10c988ae1e1eb684543cb55c686242d6",
+  "prompts": {},
+  "sessions": {
+    "s_5588a55648cdd1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "795944fa-2558-48f7-a52d-5b45d48073db",
+        "model": "unknown"
+      },
+      "human_author": "James McAulay <hello@jamesmcaulay.co.uk>"
+    }
+  }
+}
