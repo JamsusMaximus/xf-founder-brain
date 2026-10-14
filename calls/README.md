@@ -1,6 +1,6 @@
 # Calls
 
-Call notes, grades and pre-call briefs land here. This folder is gitignored by default (see `.gitignore`).
+Call notes, grades and pre-call briefs land here.
 
 Naming (`<person>` is a lowercase-hyphenated name, or a pseudonym if the call is sensitive):
 - Raw transcript: `calls/YYYY-MM-DD-<person>.transcript.md`

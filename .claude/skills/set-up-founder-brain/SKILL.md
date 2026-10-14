@@ -20,8 +20,8 @@ Base URL for fetching files: `https://raw.githubusercontent.com/JamsusMaximus/xf
 ## Step 1: first-run checks (about 3 minutes)
 
 1. **Privacy.** Run `git remote -v`.
-   - Mode A, remote is the public `JamsusMaximus/xf-founder-brain`: explain that this folder will hold notes about real people, and offer to run `git remote remove origin`. `calls/` is already gitignored.
-   - Mode B, any remote: say where it points. If it is a public repo, an old company's org or anything shared, warn before anything lands in `calls/`, and offer to remove or change the remote, or add `calls/` to `.gitignore`.
+   - Mode A, remote is the public `JamsusMaximus/xf-founder-brain`: explain that this folder will hold notes about real people, and offer to run `git remote remove origin`.
+   - Mode B, any remote: say where it points. If it is a public repo, an old company's org or anything shared, warn before anything lands in `calls/`, and offer to remove or change the remote.
 2. **Tool connections, all optional.** Check your MCP list (`/mcp` or the tool list) for Granola and Apollo and say which are connected. Neither is needed: without Granola, paste or drop files in `calls/` (Otter, Fireflies, Zoom exports, voice memos and typed notes all work); without Apollo, `prep-call` uses web search. Do not stop the setup to connect them; point at the README's "Connect your tools" if they want to.
 
 ## Step 2: quick win (about 5–10 minutes, skip if no calls)
@@ -54,7 +54,7 @@ Fetch whatever is missing from the base URL (never from memory): `prompts/founde
    Show a table: existing rule, conflict, proposed resolution. The founder decides; their guardrails always win. Apply after one approval. Notes about removed or changed rules go in `decisions.md`, never in the instruction file.
    - **Which file:** Claude Code reads `CLAUDE.md`, Codex reads `AGENTS.md`. If only a `CLAUDE.md` exists and they use Codex (or both tools), create `AGENTS.md` from it and leave `CLAUDE.md` as the single line `@AGENTS.md`. Ask first.
    - **Old code repo?** Offer to move coding rules and build commands into a scoped file (for example `src/CLAUDE.md`) so the root file stays lean.
-4. **Add what is missing.** `ideas/` (with `_template.md`, `README.md`, `killed/README.md`), `calls/` (with `README.md`, and `calls/` in `.gitignore`), `people.md`, and `guardrails.md` if they have none (if they have one, keep theirs and offer only the missing lines). Create `context/founder.md` (thin, pointing at their existing files) and `decisions.md` if missing. Install the skills where the tool reads them: `.claude/skills/<name>/` for Claude Code, `.agents/skills/<name>/` for Codex (both if unsure).
+4. **Add what is missing.** `ideas/` (with `_template.md`, `README.md`, `killed/README.md`), `calls/` (with `README.md`), `people.md`, and `guardrails.md` if they have none (if they have one, keep theirs and offer only the missing lines). Create `context/founder.md` (thin, pointing at their existing files) and `decisions.md` if missing. Install the skills where the tool reads them: `.claude/skills/<name>/` for Claude Code, `.agents/skills/<name>/` for Codex (both if unsure).
    - **Name clash** (for example they already have a `prep-call`): agree a new name first (for example `prep-discovery-call`), change the `name:` line, and update every reference to it (`AGENTS.md`, the other two skills, any index).
    - Never overwrite a file with real content: show both and ask. If they keep ideas or call notes elsewhere, ask whether to use that folder instead. If they have an index file, add the new files to it.
 5. Turn existing idea notes into `ideas/<name>.md` and dead ones into `ideas/killed/<name>.md`, all in the same single proposal.

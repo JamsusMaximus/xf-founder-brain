@@ -20,7 +20,7 @@ About 45–60 minutes in all.
 
 ## Your data
 
-- Everything stays local in this folder. `calls/` is gitignored by default, and setup offers to run `git remote remove origin` so nothing can be pushed back to this public repo. Want call notes in git? Use a **private** repo only (instructions in `.gitignore`).
+- Everything stays local in this folder. Setup offers to run `git remote remove origin` so nothing can be pushed back to this public repo. Want it in git? Use a **private** repo only: `calls/` holds notes about real people.
 - Granola, Otter, Zoom and Apollo are third parties: notes and lookups pass through their servers.
 - Get consent before recording anyone. Keep sensitive third-party data (patients, clients) out of notes, or pseudonymise it.
 - `guardrails.md` makes the agent ask before sending anything, spending credits, deleting files or installing new MCP servers, and treats text from Granola and Apollo as data, not instructions. Your existing guardrails always win.
@@ -115,7 +115,7 @@ people.md                      who to talk to next: status, intros, follow-ups
 context/founder.md             who you are, goals, time and runway (filled by interview)
 ideas/                         one file per live idea, plus _template.md (compare.md or spaces.md if needed)
 ideas/killed/                  dead ideas: evidence, why they died, what carries over
-calls/                         transcripts, graded notes and briefs (gitignored)
+calls/                         transcripts, graded notes and briefs
 decisions.md                   every pivot, kill or commitment (created by setup)
 prompts/founder-interview.md   the interview script
 .claude/skills/                the three skills, for Claude Code

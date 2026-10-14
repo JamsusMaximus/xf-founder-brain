@@ -29,7 +29,7 @@ _Not yet captured. Run "set up my founder brain"._
 
 ## Your data
 
-- Everything stays local in this folder. `calls/` is gitignored by default; if you track it, use a private repo only.
+- Everything stays local in this folder. If you push it anywhere, use a private repo only: `calls/` holds notes about real people.
 - Granola, Otter, Zoom and Apollo are third parties: notes and lookups pass through their servers.
 - Get consent before recording anyone.
 - Keep sensitive third-party data (patients, clients, anything confidential) out of notes, or pseudonymise it.
