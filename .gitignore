@@ -1,0 +1,5 @@
+# research/ is being written by a background job; excluded for now
+research/
+.DS_Store
+.env
+.env.*
