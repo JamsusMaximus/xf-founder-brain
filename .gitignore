@@ -3,3 +3,8 @@ research/
 .DS_Store
 .env
 .env.*
+
+# Call notes are about real people, so they stay out of git by default.
+# To track them, push this folder to a PRIVATE repo only, then delete the two lines below.
+calls/*
+!calls/README.md

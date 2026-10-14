@@ -16,8 +16,9 @@ Built from The Mom Test (Rob Fitzpatrick), Steve Blank's customer development, J
 
 ## Input
 
-- A Granola note or transcript (pull it via the Granola connector if connected (free plan: last 30 days only), by person name or meeting time), or text the founder pastes.
-- If the transcript labels speakers (for example "Me" and "Them"), use that for talk ratio. If it does not, say talk ratio could not be measured and score that criterion from the questions alone.
+- A Granola note or transcript (pull it via the Granola connector if connected (free plan: last 30 days only), by person name or meeting time), or text the founder pastes or drops in `calls/`: Otter, Fireflies, Zoom exports and voice-memo transcripts all work.
+- If the transcript labels speakers (for example "Me" and "Them"), use that for talk ratio. If it does not (common in Zoom and Otter exports), infer who is speaking from context, report talk ratio as "not measurable", and score that criterion from the questions alone.
+- **Notes, not a transcript:** grade only the evidence ladder and the verdict, and mark the craft score "not gradable from notes" rather than scoring it low. If notes are undated, ask for the dates once per batch, and skip exact duplicates.
 - Read the matching `calls/YYYY-MM-DD-<person>-brief.md` if it exists (it states which hypothesis the call was meant to test) and the matching `ideas/<idea>.md`.
 - If the call was exploratory (a space, not a hypothesis), that is fine: grade the craft the same way and record what was learned about the space instead of a verdict.
 
@@ -65,13 +66,13 @@ Judge every commitment against what it costs *this* person.
 
 ## Output
 
-1. Write or append to `calls/YYYY-MM-DD-<person>.md`:
+1. Keep the raw transcript as `calls/YYYY-MM-DD-<person>.transcript.md` (if it is not already a file), and write or append the graded note to `calls/YYYY-MM-DD-<person>.md`:
    - **Snapshot:** who (role, segment), the episode they described, verbatim quotes (kept separate from interpretation), current workaround, cost, buyer path.
    - **Craft score:** X/10 with the five criterion scores and one quote each.
    - **Evidence:** ladder level and the quote or action behind it; false positives listed.
    - **Coaching point:** the one question the founder should have asked, at the moment it should have been asked (quote the line they moved past).
    - **Verdict and next test.**
-2. Update `ideas/<idea>.md`: add a row to the Evidence table and, if the ladder level is 3 or higher, to Commitment signals so far. Show the founder the proposed edits before saving.
+2. Update `ideas/<idea>.md`: add a row inside the Evidence table (directly after its last row, so the table stays one table, never below it) and, if the ladder level is 3 or higher, to Commitment signals so far. Show the founder the proposed edits before saving.
 3. Reply in chat with three lines only: the score, the evidence level, and the coaching point.
 
 ## Batch mode: "grade today's calls" or "what have my calls told me about <idea>"

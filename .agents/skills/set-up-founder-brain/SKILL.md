@@ -1,54 +1,71 @@
 ---
 name: set-up-founder-brain
-description: Set up the founder brain in one of two modes. Mode A (from scratch) runs the 15 minute founder interview. Mode B (upgrade) takes an existing context folder, maps it to the founder brain, asks only the gaps, and merges the founder rules into the existing instruction file after approval. Detects the mode automatically. Ends by grading the founder's past calls. Use when the user says "set up my founder brain", "upgrade my folder", "onboard me", "run the interview".
+description: Set up the founder brain in one of two modes. Mode A (from scratch) runs the 20 minute founder interview. Mode B (upgrade) takes an existing context folder, maps it to the founder brain, asks only the gaps, and merges the founder rules into the existing instruction file after approval. Detects the mode automatically, checks privacy and tool connections first, offers a quick-win grade of the latest call, and ends by grading the founder's past calls. Use when the user says "set up my founder brain", "upgrade my folder", "onboard me", "run the interview".
 ---
 
 # Set up the founder brain
 
+Order: detect mode, first-run checks, quick win, interview (Mode A) or upgrade (Mode B), grade the rest.
+
+Rules for both modes: one question at a time; probe a vague answer once, then move on; never assume the XF timeline ("don't know yet" is recorded as unverified); collect answers and propose all file changes once at the end, never write mid-interview; leave sensitive personal matters out unless asked in. Follow `guardrails.md`, and the founder's own rules and guardrails win on any conflict.
+
 ## Step 0: detect the mode and say which one
 
-Base URL for fetching files: `https://raw.githubusercontent.com/JamsusMaximus/xf-founder-brain/main/` (also `github.com/JamsusMaximus/xf-founder-brain`).
+Base URL for fetching files: `https://raw.githubusercontent.com/JamsusMaximus/xf-founder-brain/main/`.
 
-Look at the current folder.
+- **Mode A (from scratch):** a fresh copy of this repo or an empty folder. `context/founder.md` and the coaching section of `AGENTS.md` are still placeholders.
+- **Mode B (upgrade):** the folder already holds the founder's own material: a `CLAUDE.md` or `AGENTS.md` that is not this template, `context/`, goals, notes, or existing skills.
+- Unsure? Say what you found and ask. Always announce: "I am in Mode A" or "I am in Mode B, because...". Say the whole setup takes about 20–30 minutes.
 
-- **Mode A (from scratch):** this is a fresh copy of the repo, or an empty folder. Signs: `context/founder.md` and the coaching section of `AGENTS.md` still say "Placeholder" or "Not yet captured", and there is nothing else of substance.
-- **Mode B (upgrade):** the folder already holds the founder's own material. Signs: a `CLAUDE.md` or `AGENTS.md` with real content that is not this repo's template, a `context/` folder, a goals file, a notes folder, or existing skills (`.claude/skills`, `.agents/skills`, `skills/`).
-- Unsure? Say what you found and ask which mode. Always announce: "I am in Mode A" or "I am in Mode B, because...".
+## Step 1: first-run checks (about 3 minutes)
 
-Rules for both modes: one question at a time; probe a vague answer once, then move on; never assume the XF programme timeline, ask for dates; propose then save, never write mid-interview; never overwrite a file with real content; leave sensitive personal matters out unless asked in.
+1. **Privacy.** Run `git remote -v`.
+   - Mode A, remote is the public `JamsusMaximus/xf-founder-brain`: explain that this folder will hold notes about real people, and offer to run `git remote remove origin`. `calls/` is already gitignored.
+   - Mode B, any remote: say where it points. If it is a public repo, an old company's org or anything shared, warn before anything lands in `calls/`, and offer to remove or change the remote, or add `calls/` to `.gitignore`.
+2. **Tool connections, all optional.** Check your MCP list (`/mcp` or the tool list) for Granola and Apollo and say which are connected. Neither is needed: without Granola, paste or drop files in `calls/` (Otter, Fireflies, Zoom exports, voice memos and typed notes all work); without Apollo, `prep-call` uses web search. Do not stop the setup to connect them; point at the README's "Connect your tools" if they want to.
+
+## Step 2: quick win (about 5–10 minutes, skip if no calls)
+
+"Before the interview: want me to grade your most recent customer call? Pull it from Granola, or paste it or drop the file in `calls/`."
+
+Run `customer-discovery-grading` on that one call (save the raw text as `calls/YYYY-MM-DD-<person>.transcript.md`). If no `ideas/` file exists yet, grade the craft and the evidence level only, and note the idea update for after the interview. No call? Move straight on.
 
 ## Mode A: from scratch
 
-Follow `prompts/founder-interview.md` exactly.
-
-1. Tell the founder in a few lines what is filled and what is a gap.
-2. Ask for the LinkedIn PDF (or pasted profile) first, summarise it back, confirm.
-3. Run the interview. Write live ideas to `ideas/<name>.md` from `ideas/_template.md`, killed ideas to `ideas/killed/<name>.md`, background, XF context and goals to `context/founder.md`, and only replace the coaching placeholder in `AGENTS.md`.
-4. Go to "Last step" below.
+Run `prompts/founder-interview.md`. It ends with one proposal covering `context/founder.md`, `ideas/`, `people.md`, the "Coaching style" and "My rules" sections of `AGENTS.md`, and `decisions.md`, approved once. Then the optional market scan, then "Last step".
 
 ## Mode B: upgrade an existing folder
 
-Fetch whatever is missing from the base URL (never from memory): `prompts/founder-interview.md`, `ideas/_template.md`, `ideas/README.md`, `ideas/killed/README.md`, `calls/README.md`, `AGENTS.md`, and the three `SKILL.md` files under `.claude/skills/`.
+Fetch whatever is missing from the base URL (never from memory): `prompts/founder-interview.md`, `ideas/_template.md`, `ideas/README.md`, `ideas/killed/README.md`, `calls/README.md`, `AGENTS.md`, `guardrails.md`, `people.md`, and the three `SKILL.md` files under `.claude/skills/` (Claude Code) or `.agents/skills/` (Codex; same content).
 
-1. **Inventory.** Read what exists: `CLAUDE.md`, `AGENTS.md`, `context/`, goals, notes, existing skills. Summarise it back in a few lines and ask the founder to correct it.
-2. **Map to the founder brain.** Go through the interview questions (background, XF context, idea maze, goals, coaching style). Show a short table: question, answered by which existing file, or gap. Ask ONLY the gaps, one at a time. Do not reorganise their files to match ours; point at where the answer already lives.
-3. **Suggest instruction-file changes as a diff.** Show the proposed edit to their instruction file: the six firm rules from `AGENTS.md`, the read-`context/`-`ideas/`-`calls/`-every-session line, the decisions log, and the coaching style from the gap answers. Apply only after the founder approves.
-   - Merge, never overwrite. Keep every existing rule.
-   - **Flag conflicts** before applying: for example an existing rule that encourages building fast, shipping an MVP, or writing code first. Show both rules and ask which wins.
-   - Which file: if they use one tool, edit its file (`CLAUDE.md` for Claude Code, `AGENTS.md` for Codex). If they use both, offer: put the content in `AGENTS.md` and make `CLAUDE.md` contain only `@AGENTS.md` (Claude Code reads `AGENTS.md` alone only when no `CLAUDE.md` exists, so the import is needed). Ask first.
-4. **Add what is missing.** Add `ideas/` (with `_template.md`, `README.md`, `killed/README.md`), `calls/` (with `README.md`) and the three skills. Install skills into the folder the tool reads: `.claude/skills/<name>/SKILL.md` for Claude Code, `.agents/skills/<name>/SKILL.md` for Codex (copy to both if unsure). Never overwrite an existing file with the same name; if one clashes, show both and ask. If they already keep ideas or call notes elsewhere, ask whether to keep using that folder instead of creating a new one.
-5. Turn any existing idea notes into `ideas/<name>.md` and dead ones into `ideas/killed/<name>.md`, showing each first.
-6. **Finish** with a list of what was added, what was changed, and what was left alone. Then go to "Last step".
+1. **Inventory.** Read what exists: instruction files, `context/`, goals, notes, `research/`, competitor dumps, todo files, existing skills, any `guardrails.md` and any index file. Ask before reading anything the founder's own rules mark as off-limits. Then show one short table: file, what it holds, its home in the founder brain, and status:
+   - **Staleness:** use file dates and ask "what has changed since you wrote these?". Mark each file CURRENT, STALE or PARTLY. A stale file never answers an interview question. Offer to move stale files to `context/archive-YYYY-MM/` (a move, approved by the founder, not a delete).
+   - **Contradictions:** list them (for example two market sizes in two decks) and ask; never pick one silently. Unverified claims become hypotheses in an idea file.
+   - **Past calls:** search notes, daily notes, meeting folders and Otter, Zoom or voice-memo transcripts for customer conversations, and offer them as `calls/` entries before going to Granola.
+   - **Obsidian or other PKM vault:** ask how they link and file (wikilinks, daily notes, tags) and follow that convention for everything you write.
+2. **Map to the interview.** Show which question each existing file answers, and ask ONLY the gaps, one at a time. Do not reorganise their files to match ours.
+3. **Instruction-file changes, as one diff.** Propose: the default rules, the session-start read line (merged with any they have, as one line), the data section, coaching style and 2–4 proposed founder-specific rules from the interview. Before applying, **scan for every conflict**, not just "build fast":
+   - speed ("ship daily", "build the MVP first");
+   - structure ("never add folders", an existing filing scheme);
+   - privacy ("never store client names": use pseudonymised call file names);
+   - stale goals or rules from a previous job or company;
+   - style versus skill output (format or length rules the skills would break);
+   - rituals on every task ("always run tests", "always read X").
+   Show a table: existing rule, conflict, proposed resolution. The founder decides; their guardrails always win. Apply after one approval. Notes about removed or changed rules go in `decisions.md`, never in the instruction file.
+   - **Which file:** Claude Code reads `CLAUDE.md`, Codex reads `AGENTS.md`. If only a `CLAUDE.md` exists and they use Codex (or both tools), create `AGENTS.md` from it and leave `CLAUDE.md` as the single line `@AGENTS.md`. Ask first.
+   - **Old code repo?** Offer to move coding rules and build commands into a scoped file (for example `src/CLAUDE.md`) so the root file stays lean.
+4. **Add what is missing.** `ideas/` (with `_template.md`, `README.md`, `killed/README.md`), `calls/` (with `README.md`, and `calls/` in `.gitignore`), `people.md`, and `guardrails.md` if they have none (if they have one, keep theirs and offer only the missing lines). Create `context/founder.md` (thin, pointing at their existing files) and `decisions.md` if missing. Install the skills where the tool reads them: `.claude/skills/<name>/` for Claude Code, `.agents/skills/<name>/` for Codex (both if unsure).
+   - **Name clash** (for example they already have a `prep-call`): agree a new name first (for example `prep-discovery-call`), change the `name:` line, and update every reference to it (`AGENTS.md`, the other two skills, any index).
+   - Never overwrite a file with real content: show both and ask. If they keep ideas or call notes elsewhere, ask whether to use that folder instead. If they have an index file, add the new files to it.
+5. Turn existing idea notes into `ideas/<name>.md` and dead ones into `ideas/killed/<name>.md`, all in the same single proposal.
+6. **Finish** with what was added, changed, archived and left alone. Then "Last step".
 
-## Last step (both modes): grade the past calls
+## Last step (both modes): grade the remaining past calls
 
-Setup is not finished until this is offered. Say:
+"Let's grade the rest of your customer calls. I can pull them from Granola if connected, or paste them or drop files in `calls/` (Otter, Fireflies, Zoom, voice memos and typed notes all work)."
 
-"Last step: let's grade the customer interviews you have already done. I can pull them from Granola if it is connected, or you can paste transcripts or drop files into `calls/`. Granola's free plan only reaches the last 30 days of notes."
-
-1. If Granola is connected, list the founder's past customer-style meetings and let them tick which are real customer discovery calls. Otherwise ask for pasted transcripts or files in `calls/`.
-2. **Warn before a large batch.** More than about 5 calls takes a while (several minutes). Offer to start with the 3 most recent, or to run the rest in the background.
-3. Run `customer-discovery-grading` on each call, one by one, saving `calls/YYYY-MM-DD-<person>.md`.
-4. Finish with its **batch mode** synthesis per idea (segment by segment), and the recommendation: keep interviewing, narrow, test with a real commitment, or kill.
-5. If there are no past calls, say so, point at `prep-call`, and book the first one.
-6. Mention `prep-call` as the day-to-day tool.
+1. If Granola is connected, list past customer-style meetings and let the founder tick the real discovery calls. Granola's free plan only reaches the last 30 days: ask them to paste or drop in anything older.
+2. **Warn before a large batch.** More than about 5 calls takes several minutes. Offer the 3 most recent first, or the rest in the background.
+3. Run `customer-discovery-grading` on each. Add anyone worth a follow-up, and any promised intro, to `people.md`.
+4. Finish with its batch-mode synthesis per idea and the recommendation.
+5. No past calls? Point at `people.md`: pick three names, draft the ask, and book the first call. Mention `prep-call` as the day-to-day tool.
