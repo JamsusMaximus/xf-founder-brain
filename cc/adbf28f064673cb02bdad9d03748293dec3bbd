@@ -1,0 +1,27 @@
+.agents/skills/set-up-founder-brain/SKILL.md
+  s_5588a55648cdd1::t_37f14e0b338f4b 23-24,57
+.claude/skills/set-up-founder-brain/SKILL.md
+  s_5588a55648cdd1::t_d51383746c94b1 23-24,57
+AGENTS.md
+  s_5588a55648cdd1::t_d7e78cf0c42b5f 32
+README.md
+  s_5588a55648cdd1::t_a27fb2ac6cc2fb 23,118
+calls/README.md
+  s_5588a55648cdd1::t_14ac602c9f7efe 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ccadbf28f064673cb02bdad9d03748293dec3bbd",
+  "prompts": {},
+  "sessions": {
+    "s_5588a55648cdd1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "795944fa-2558-48f7-a52d-5b45d48073db",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "James McAulay <hello@jamesmcaulay.co.uk>"
+    }
+  }
+}
