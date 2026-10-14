@@ -8,7 +8,7 @@ description: Prepare a one page pre-call brief for a customer discovery call. Ta
 ## Single person
 Input: a name, email, company or LinkedIn URL. Ask for one only if none was given.
 
-1. **Enrich.** If the Apollo connector is connected (check `/mcp` or the available tools), use people match / enrichment on whatever identifier you have. Apollo can spend credits: say so before a batch of more than a few.
+1. **Enrich.** If the Apollo connector is connected (check your tool's MCP list, for example `/mcp`), use people match / enrichment on whatever identifier you have. Apollo can spend credits: say so before a batch of more than a few.
 2. **Fallback.** If Apollo is not connected or finds nothing, use web search (company site, LinkedIn page if public, recent news). Mark anything not confirmed as "unverified". Never invent a job title, employer or fact.
 3. **Read the relevant `ideas/` file.** If several fit, pick the one the call most likely tests and say so. If none fit, ask which idea this call is for.
 4. **Write `calls/YYYY-MM-DD-<person>-brief.md`** (today's date, person as lowercase-hyphenated name), one page:

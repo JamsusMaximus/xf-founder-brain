@@ -1,6 +1,6 @@
 # Calls
 
-Granola notes, call grades and pre-call briefs land here.
+Granola notes, call grades and pre-call briefs land here. Past transcripts you paste or drop in this folder are fine too.
 
 Naming:
 - Notes: `calls/YYYY-MM-DD-<person>.md` (for example `calls/2026-10-14-jane-smith.md`)

@@ -14,7 +14,7 @@ Built from The Mom Test (Rob Fitzpatrick), Steve Blank's customer development, J
 
 ## Input
 
-- A Granola note or transcript (pull it via the Granola connector if connected, by person name or meeting time), or text the founder pastes.
+- A Granola note or transcript (pull it via the Granola connector if connected (free plan: last 30 days only), by person name or meeting time), or text the founder pastes.
 - If the transcript labels speakers (for example "Me" and "Them"), use that for talk ratio. If it does not, say talk ratio could not be measured and score that criterion from the questions alone.
 - Read the matching `calls/YYYY-MM-DD-<person>-brief.md` if it exists (it states which hypothesis the call was meant to test) and the matching `ideas/<idea>.md`.
 

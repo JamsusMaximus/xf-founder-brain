@@ -6,4 +6,4 @@ Each file holds: the idea in one line, the ideal customer (ICP), hypotheses, the
 
 Statuses: `exploring`, `testing`, `promising`, `paused`, `killed`.
 
-Update the file after every call. When an idea dies, move it to `killed/`. Claude reads this folder every session.
+Update the file after every call. When an idea dies, move it to `killed/`. Your agent reads this folder every session.

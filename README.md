@@ -1,77 +1,138 @@
 # XF Founder Brain
 
-A second brain for the idea maze. It is a folder Claude Code reads every session, so it knows who you are, which ideas you are testing, what you have learned from each customer call, and what you have already killed.
+**New? Do Mode A. Already have a context folder? Do Mode B.**
 
-The aim is simple: more customer discovery interviews, and more learned from each one.
+A second brain for the idea maze: a folder your coding agent reads every session, so it knows who you are, which ideas you are testing, what each customer call taught you, and what you have killed. The aim is more customer interviews, and more learned from each one.
 
-It is a compressed, founder-specific version of [agent-foundations-starter](https://github.com/JamsusMaximus/agent-foundations-starter) by James McAulay, Agent Accelerator. Setup takes 45-60 minutes, including a 15 minute interview.
+A compressed, founder-specific version of [agent-foundations-starter](https://github.com/JamsusMaximus/agent-foundations-starter) by James McAulay, Agent Accelerator. About 45-60 minutes, including a 15 minute interview. Works with **Claude Code (recommended)** or **Codex**.
 
-## Set up
+## Hour checklist
 
-1. **Install Claude Code.** Follow the [quickstart](https://code.claude.com/docs/en/quickstart). On Mac or Linux the native install is:
-   ```bash
-   curl -fsSL https://claude.ai/install.sh | bash
-   ```
-   Then open a new terminal and run `claude --version` to check it worked. Homebrew (`brew install --cask claude-code`) and Windows installers are on the same page.
-2. **Get this repo.** Either `git clone https://github.com/JamsusMaximus/xf-founder-brain.git` or download the ZIP from the green Code button on GitHub and unzip it. If you want your own private copy, make it a private repo afterwards, since it will hold your notes.
-3. **Open it.** In a terminal: `cd xf-founder-brain`, then `claude`. Sign in when prompted.
-4. **Connect your tools** (see below). Granola and Apollo are worth doing before you start. Calendar is optional.
-5. **Say:** `set up my founder brain`
+1. Install your tool (below).
+2. Mode A or Mode B (below).
+3. Connect Granola and Apollo (below).
+4. **Last step, both modes: grade your past calls.** The setup ends by offering to pull every past customer interview from Granola (or from transcripts you paste or drop in `calls/`) and grade each one, then a summary per idea.
 
-If the skill does not trigger, paste the kick-off prompt at the bottom of this file.
+## Install
+
+**Claude Code** (recommended). Follow the [quickstart](https://code.claude.com/docs/en/quickstart). Mac or Linux:
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+Open a new terminal and run `claude --version`. Sign in when you first run `claude`.
+
+**Codex.** Per [OpenAI's Codex CLI docs](https://developers.openai.com/codex/cli), Mac or Linux:
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+Windows (PowerShell): `powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"`. Also available via `npm install -g @openai/codex` or `brew install --cask codex`. Then run `codex` and sign in.
+
+## Mode A: from scratch
+
+1. `git clone https://github.com/JamsusMaximus/xf-founder-brain.git`, or download the ZIP from the green Code button and unzip it. **Make your own copy private** (a private repo, or just keep it local): `calls/` will hold notes about real people.
+2. `cd xf-founder-brain`, then `claude` (or `codex`).
+3. Say: `set up my founder brain`. It will say it is in Mode A and run the interview. Have your LinkedIn PDF ready.
+
+## Mode B: upgrade your existing folder
+
+Already on James's earlier starter, or your own folder of notes? Open **your existing folder** in Claude Code or Codex and paste this. It fetches what it needs from GitHub, so it works even though the skills are not in your folder yet.
+
+```
+I want to upgrade this folder into a "founder brain" (Mode B). Fetch what you
+need from https://github.com/JamsusMaximus/xf-founder-brain (raw files at
+https://raw.githubusercontent.com/JamsusMaximus/xf-founder-brain/main/):
+README.md, AGENTS.md, prompts/founder-interview.md, ideas/_template.md,
+ideas/README.md, ideas/killed/README.md, calls/README.md, and the three
+SKILL.md files under .claude/skills/ (set-up-founder-brain, prep-call,
+customer-discovery-grading). Read .claude/skills/set-up-founder-brain/SKILL.md
+and follow its Mode B.
+
+In short:
+1. Inventory what exists here (CLAUDE.md / AGENTS.md, context/, goals, notes,
+   skills) and summarise it back in a few lines.
+2. Map it to the founder interview. Ask me ONLY the gaps, one question at a time.
+3. Show my instruction-file changes as a diff: lean founder rules, read
+   context/, ideas/ and calls/ each session, a decisions log, my coaching
+   style. Merge with my existing rules, flag conflicts (e.g. a rule that
+   encourages building), and apply only after I approve.
+4. Add what is missing: ideas/ (template plus killed/), calls/, and the three
+   skills, in .claude/skills/ for Claude Code or .agents/skills/ for Codex.
+   Never overwrite a file with the same name: show both and ask.
+5. List what you added, changed and left alone.
+6. LAST STEP: offer to pull every past customer interview from Granola (or
+   from transcripts I paste or drop into calls/; Granola's free plan only
+   reaches the last 30 days). Warn me before grading a large batch. Run the
+   customer-discovery-grading skill on each, then its batch-mode synthesis
+   per idea.
+```
+
+If you have the repo cloned instead, just say `set up my founder brain`: the skill detects Mode B itself.
 
 ## Connect your tools
 
-Run these inside this folder. Each takes about a minute.
+Granola (call notes) and Apollo (look people up before a call) are worth doing before the last step. Calendar is optional.
 
-**Granola** (call notes and transcripts)
+**Claude Code**, run inside your folder:
 ```bash
 claude mcp add granola --transport http https://mcp.granola.ai/mcp
-```
-Open a new terminal tab, run `claude` again, type `/mcp`, select `granola` and choose Authenticate. Source: [Granola MCP docs](https://docs.granola.ai/help-center/sharing/integrations/mcp). On Granola's free plan, MCP only reaches notes from the last 30 days.
-
-**Apollo** (look people up before a call)
-```bash
 claude mcp add --transport http apollo https://mcp.apollo.io/mcp
 ```
-Then type `/mcp` inside Claude Code and complete the sign-in in your browser. You need an Apollo account, and enrichment uses Apollo credits. Apollo asks that model training is switched off in your AI account settings. Source: [Apollo MCP docs](https://docs.apollo.io/docs/apollo-mcp). Without Apollo, `prep-call` falls back to web search.
+Then start `claude`, type `/mcp`, pick each server and authenticate in the browser. Sources: [Granola MCP docs](https://docs.granola.ai/help-center/sharing/integrations/mcp), [Apollo MCP docs](https://docs.apollo.io/docs/apollo-mcp). Granola's free plan reaches only the last 30 days of notes. Apollo needs an account, and enrichment uses credits. Without Apollo, `prep-call` falls back to web search.
 
-**Google Calendar** (optional, for prepping a whole day of calls at once)
-Connect it from Claude's connectors settings at [claude.ai/customize/connectors](https://claude.ai/customize/connectors). Once you are logged into Claude Code with the same claude.ai account, connectors appear in `/mcp` automatically. Claude Code's docs say Google Calendar must be connected this way rather than with `claude mcp add`. Source: [Claude Code MCP docs](https://code.claude.com/docs/en/mcp). The exact click path inside the connectors page was not checked, so look for Google Calendar in the list.
+**Codex.** Apollo, from [Apollo's docs](https://docs.apollo.io/docs/apollo-mcp): add to `~/.codex/config.toml`
+```toml
+[mcp_servers.apollo]
+url = "https://mcp.apollo.io/mcp"
+```
+then run `codex mcp login apollo` and finish the sign-in in your browser. Granola, same pattern from [Codex's MCP docs](https://developers.openai.com/codex/mcp) (`codex mcp add <name> --url <url>`; `codex mcp login <name>`; `/mcp` in the TUI lists servers):
+```bash
+codex mcp add granola --url https://mcp.granola.ai/mcp
+codex mcp login granola
+```
+**Unverified:** Granola's own docs do not mention Codex, so that Granola command is built from the two docs above and not tested. If it fails, add a `[mcp_servers.granola]` table with `url = "https://mcp.granola.ai/mcp"` in `config.toml`, as for Apollo. No Granola in Codex? Paste transcripts into `calls/` instead.
 
-## What happens in the interview
-
-About 15 minutes, one question at a time. Drop in your LinkedIn PDF first so you do not retype your history. It covers your background, your XF context, the idea maze (each idea becomes a file), your goals, and your coaching style. Claude shows you what it will save before saving anything, and never overwrites existing files.
+**Google Calendar** (optional, Claude Code): connect it in Claude's connectors settings at [claude.ai/customize/connectors](https://claude.ai/customize/connectors); with the same account it appears in `/mcp`. See the [Claude Code MCP docs](https://code.claude.com/docs/en/mcp). I have not checked the exact click path. Not set up for Codex here; skip it and paste call lists to `prep-call`.
 
 ## Day to day
 
-- **Before a call:** `prep-call <name, email, company or LinkedIn URL>`. Writes a one page brief to `calls/`. Say `prep today's calls` to do the whole calendar.
-- **After a call:** Granola notes land in `calls/YYYY-MM-DD-<person>.md`. Ask Claude to update the idea file with what you learned.
-- **Idea dies:** ask Claude to move it to `ideas/killed/` with the evidence.
-- **Grading calls:** `customer-discovery-grading` is a placeholder until the rubric is finalised.
+- **Before a call:** `prep-call <name, email, company or LinkedIn URL>`, or `prep today's calls`. Writes a one page brief to `calls/`.
+- **After a call:** notes land in `calls/YYYY-MM-DD-<person>.md`. Say `grade my call` for a craft score out of 10, the evidence level, and the one question you should have asked.
+- **Idea dies:** ask your agent to move it to `ideas/killed/` with the evidence and a line in `decisions.md`.
 
 ## Folder map
 
 ```
-README.md                 this file
-CLAUDE.md                 rules Claude follows every session (coaching style filled by interview)
-context/founder.md        who you are (filled by interview)
-ideas/                    one file per live idea, plus _template.md
-ideas/killed/             every dead idea: evidence, why it died, what carries over
-calls/                    call notes, grades and pre-call briefs
+README.md                      this file
+AGENTS.md                      canonical rules for any agent (coaching style filled by interview)
+CLAUDE.md                      one line: imports AGENTS.md for Claude Code
+context/founder.md             who you are (filled by interview)
+ideas/                         one file per live idea, plus _template.md
+ideas/killed/                  dead ideas: evidence, why they died, what carries over
+calls/                         call notes, grades and pre-call briefs
+decisions.md                   every pivot, kill or commitment (created by setup)
 prompts/founder-interview.md   the interview script
-.claude/skills/           set-up-founder-brain, prep-call, customer-discovery-grading
+.claude/skills/                the three skills, for Claude Code
+.agents/skills/                identical copy, for Codex (scripts/sync-skills.sh keeps them in sync)
 ```
 
-## Kick-off prompt (fallback)
+## How the two tools are supported
+
+Claude Code reads `CLAUDE.md`, which imports `AGENTS.md` with `@AGENTS.md` ([Claude Code memory docs](https://code.claude.com/docs/en/memory)). Codex reads `AGENTS.md` directly ([Codex AGENTS.md docs](https://developers.openai.com/codex/guides/agents-md)). Claude Code loads skills from `.claude/skills`; Codex loads repo skills from `.agents/skills` ([Codex skills docs](https://developers.openai.com/codex/skills)). Two plain copies, not a symlink, so ZIP downloads and Windows work. `AGENTS.md` also says where the skills live, as a fallback for any other tool.
+
+## Kick-off prompt (Mode A fallback)
+
+If the skill does not trigger:
 
 ```
-I'm setting up xf-founder-brain. Read README.md, CLAUDE.md and
+I'm setting up xf-founder-brain (Mode A). Read README.md, AGENTS.md and
 prompts/founder-interview.md in this folder. Check which of context/founder.md,
-ideas/ and the coaching section of CLAUDE.md are still placeholders. Then run
-the founder interview one question at a time, starting by asking me for my
-LinkedIn PDF. Probe once if I am vague. Show me proposed content before saving,
-and never overwrite anything that already has real content.
+ideas/ and the coaching section of AGENTS.md are still placeholders. Run the
+founder interview one question at a time, starting by asking for my LinkedIn
+PDF. Probe once if I am vague. Show me proposed content before saving, and
+never overwrite anything with real content. Last step: offer to pull my past
+customer interviews from Granola (free plan: last 30 days) or from transcripts
+in calls/, warn me before a large batch, grade each with
+customer-discovery-grading, then give me its batch synthesis per idea.
 ```
 
 ---
