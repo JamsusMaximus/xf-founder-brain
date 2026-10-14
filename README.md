@@ -12,11 +12,14 @@ A compressed, founder-specific version of [agent-foundations-starter](https://gi
 2. **Connect Granola and Apollo** (optional, 5 min). Skipping is fine: paste calls instead.
 3. **Say `set up my founder brain`.** It then runs:
    - privacy and connection checks (3 min);
+   - **your LinkedIn PDF**, so you never retype your history (3 min);
    - **a quick win:** it grades your most recent customer call (5–10 min);
-   - the founder interview, with one approval at the end (about 20 min);
+   - the founder interview (about 15 min), including **find your edge** (10–15 min, or a 5 minute short version), with one approval at the end;
    - grading your other past calls, with a summary per idea (10 min).
 
-About 45–60 minutes in all.
+About 55–70 minutes in all. Short on time? Take the short edge version and grade the rest of your calls later.
+
+**Find your edge** uses Entrepreneurs First's Edge framework (Tech, Market and Catalyst Edge; [EF's write-up](https://www.joinef.com/posts/play-your-strongest-card/)). The agent reads your LinkedIn and files first, drafts a hypothesis with evidence, then tests it with you and pushes back on generic answers. It writes `context/edge.md`, and every idea gets an "Edge fit" score against it.
 
 ## Your data
 
@@ -49,7 +52,7 @@ Windows (PowerShell): `powershell -ExecutionPolicy ByPass -c "irm https://chatgp
 
 1. `git clone https://github.com/JamsusMaximus/xf-founder-brain.git`, or download the ZIP from the green Code button and unzip it.
 2. `cd` into the folder. A ZIP unzips as `xf-founder-brain-main`, and you may have renamed it: use whichever folder has this `README.md` in it (on Mac, type `cd ` and drag the folder into the terminal). Then run `claude` (or `codex`).
-3. Say: `set up my founder brain`. Have your LinkedIn PDF and your most recent customer call (Granola, Otter, Zoom, a voice memo or typed notes) to hand.
+3. Say: `set up my founder brain`. Have your LinkedIn PDF and your most recent customer call (Granola, Otter, Zoom, a voice memo or typed notes) to hand. To get the PDF, on a computer (not the app): click **Me** at the top of LinkedIn, then **View profile**, then **More** (or **Resources**) in your intro section, then **Save to PDF** ([LinkedIn Help](https://www.linkedin.com/help/linkedin/answer/a541960); it needs your profile language set to English).
 
 ## Mode B: upgrade your existing folder
 
@@ -59,15 +62,15 @@ Already on James's earlier starter, or your own folder of notes? Open **your exi
 I want to upgrade this folder into a "founder brain" (Mode B). Fetch what you
 need from https://raw.githubusercontent.com/JamsusMaximus/xf-founder-brain/main/
 : README.md, AGENTS.md, guardrails.md, people.md, prompts/founder-interview.md,
-ideas/_template.md, ideas/README.md, ideas/killed/README.md, calls/README.md,
+prompts/edge-interview.md, ideas/_template.md, ideas/README.md, ideas/killed/README.md, calls/README.md,
 and the three skills (set-up-founder-brain, prep-call,
 customer-discovery-grading). Each skill is at .claude/skills/<name>/SKILL.md
 and, identically, .agents/skills/<name>/SKILL.md. Install them into
 .claude/skills/ if I use Claude Code, or .agents/skills/ if I use Codex.
 
 Then read set-up-founder-brain/SKILL.md and follow it: first-run checks
-(including `git remote -v`), the quick-win grade of my latest call, then
-Mode B and the last step. In short: inventory everything here (staleness,
+(including `git remote -v`), my LinkedIn PDF, the quick-win grade of my
+latest call, then Mode B (including "find your edge") and the last step. In short: inventory everything here (staleness,
 contradictions, past calls hiding in my notes), ask me ONLY the gaps, show
 every conflict with my existing rules as a table, propose all changes as one
 diff and apply after one approval. Never overwrite or delete my files without
@@ -113,11 +116,14 @@ CLAUDE.md                      one line: imports AGENTS.md for Claude Code
 guardrails.md                  what the agent must ask before doing
 people.md                      who to talk to next: status, intros, follow-ups
 context/founder.md             who you are, goals, time and runway (filled by interview)
+context/linkedin.md            your LinkedIn profile as text (from the PDF)
+context/edge.md                your edge in EF's terms, strengths, access, blind spots, idea fit test
 ideas/                         one file per live idea, plus _template.md (compare.md or spaces.md if needed)
 ideas/killed/                  dead ideas: evidence, why they died, what carries over
 calls/                         transcripts, graded notes and briefs
 decisions.md                   every pivot, kill or commitment (created by setup)
 prompts/founder-interview.md   the interview script
+prompts/edge-interview.md      the "find your edge" step
 .claude/skills/                the three skills, for Claude Code
 .agents/skills/                identical copy, for Codex (scripts/sync-skills.sh keeps them in sync)
 ```

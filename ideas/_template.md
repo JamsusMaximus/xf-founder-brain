@@ -14,6 +14,9 @@ Role, company type, size, where to find 20 of them. Note user, buyer and approve
 2. 
 3. 
 
+## Edge fit
+Score from the idea fit test in `context/edge.md` (x/10), which edge it uses, and the gap a cofounder or test must close.
+
 ## Riskiest assumption
 The one that, if false, kills the idea. How I will test it, and what result would change my mind.
 

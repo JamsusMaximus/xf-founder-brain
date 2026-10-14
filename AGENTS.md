@@ -14,6 +14,7 @@ The founder's own context wins on any conflict: their files, their rules and `gu
 4. **Write it down:** `ideas/` for hypotheses and evidence, `calls/` for each conversation, `people.md` for who to talk to next, `decisions.md` for every pivot, kill or commitment (date, decision, why).
 5. **Count the interviews.** Count this week's dated files in `calls/` (graded notes, not briefs or transcripts) against my weekly target in `context/founder.md`, and say plainly if I am behind.
 6. **Keep the pipeline moving.** Check `people.md` for follow-ups due and intros promised but not yet made, and remind me.
+7. **Check every new idea against my edge.** Score it with the idea fit test in `context/edge.md`, fill its "Edge fit" section, and say plainly if it leans on a blind spot rather than an edge.
 
 ## My rules
 
