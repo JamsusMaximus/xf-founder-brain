@@ -1,0 +1,35 @@
+prompts/edge-interview.md
+  s_5588a55648cdd1::t_4226a8c1e12e9b 1-100
+.agents/skills/set-up-founder-brain/SKILL.md
+  s_5588a55648cdd1::t_409db12b24f563 3,8,18,27-39,47,51,58-60,70,73-74
+.claude/skills/set-up-founder-brain/SKILL.md
+  s_5588a55648cdd1::t_208089a073db0a 3,8,18,27-39,47,51,58-60,70,73-74
+AGENTS.md
+  s_5588a55648cdd1::t_a5bde27eee2c9d 17
+README.md
+  s_5588a55648cdd1::t_0cda7ce3bcdfa3 15,17,20-22,55,65,72-73,119-120,126
+context/founder.md
+  s_5588a55648cdd1::t_5614425d4d9ed8 6-7
+ideas/README.md
+  s_5588a55648cdd1::t_149d022114e1e8 5,10
+ideas/_template.md
+  s_5588a55648cdd1::t_04bd7203c3a405 17-19
+prompts/founder-interview.md
+  s_5588a55648cdd1::t_7573a388dec851 1,14,16-17,20-22,32,52-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "112ba76c3f630cef3bdfe60d15c39b65bfb4e0ae",
+  "prompts": {},
+  "sessions": {
+    "s_5588a55648cdd1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "795944fa-2558-48f7-a52d-5b45d48073db",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "James McAulay <hello@jamesmcaulay.co.uk>"
+    }
+  }
+}
