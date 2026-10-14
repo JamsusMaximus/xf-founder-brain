@@ -1,0 +1,49 @@
+prompts/founder-interview.md
+  s_5588a55648cdd1::t_ec2d6e6a556c55 1,6-9,11,14-15,17-20,22-25,28-33,35-37,39-42,44-46,48-49,51-64
+.gitignore
+  s_5588a55648cdd1::t_7c6e6d409e3f7e 6-10
+guardrails.md
+  s_5588a55648cdd1::t_881f5a811c180d 1-8
+README.md
+  s_5588a55648cdd1::t_edbd2b50bc9f36 5,7,9,11-26,30-32,36-40,42,46,50-52,60-75,80,82,89,96,98,102-104,111,113-116,118,127,129,134-136
+.claude/skills/set-up-founder-brain/SKILL.md
+  s_5588a55648cdd1::t_4d149e3552bac3 3,8,10,12,14,16-18,20,22-25,27,29,31,33,35,37,39-71
+people.md
+  s_5588a55648cdd1::t_729d5ca43b65e8 1-8
+AGENTS.md
+  s_5588a55648cdd1::t_67b5bc1f45ef78 5,7,9,11-16,18-22,29-40
+.agents/skills/customer-discovery-grading/SKILL.md
+  s_5588a55648cdd1::t_745d07d627c36e 19-21,69,75
+.agents/skills/prep-call/SKILL.md
+  s_5588a55648cdd1::t_ac65d585970b5a 11,21
+.agents/skills/set-up-founder-brain/SKILL.md
+  s_5588a55648cdd1::t_aa01371ba07a51 3,8,10,12,14,16-18,20,22-25,27,29,31,33,35,37,39-71
+.claude/skills/customer-discovery-grading/SKILL.md
+  s_5588a55648cdd1::t_5db290af5d3fb6 19-21,69,75
+.claude/skills/prep-call/SKILL.md
+  s_5588a55648cdd1::t_5b610382230c49 11,21
+calls/README.md
+  s_5588a55648cdd1::t_29fa890ec2e858 3,5-7,9,11,13
+context/founder.md
+  s_5588a55648cdd1::t_ccbcad5bdeda88 5-10
+ideas/README.md
+  s_5588a55648cdd1::t_3caa4f2c3c581b 5,9-12
+ideas/_template.md
+  s_5588a55648cdd1::t_b7e8f42a3030e1 10,20-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b744a2aff6c69cd139ee7dbd7a0d389c30f9d750",
+  "prompts": {},
+  "sessions": {
+    "s_5588a55648cdd1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "795944fa-2558-48f7-a52d-5b45d48073db",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "James McAulay <hello@jamesmcaulay.co.uk>"
+    }
+  }
+}
